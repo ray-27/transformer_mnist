@@ -2,5 +2,5 @@ pandas
 numpy
 matplotlib
 tqdm
-sklearn
+scikit-learn
 colorama

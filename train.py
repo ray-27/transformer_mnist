@@ -164,5 +164,5 @@ def save_plots(epoch_loss_dic,val_loss_dic,accuracy_dic,epoches):
 
 
 if __name__ == "__main__":
-    # train()
+    train()
     test()
