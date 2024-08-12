@@ -5,7 +5,7 @@ from torch.optim import Adam
 
 from mnist_dataset import mnist_dataset,mnist_test
 from transformer_model import vision_transform
-
+from pytorch_trans_model import mod
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -42,14 +42,19 @@ def train():
 
     device = device_is()
     
-    model = vision_transform(emb_dim=config.emb_dim,
+    # model = vision_transform(emb_dim=config.emb_dim,
+    #                          num_of_heads=config.num_of_heads,
+    #                          patch_size=config.patch_size,
+    #                          dropout_rate=config.dropout_rate,
+    #                          num_of_encoder_blocks=config.num_of_encoder_blocks,
+    #                          num_classes=config.num_classes,
+    #                          show_params=config.show_params).to(device)
+    model = mod(emb_dim=config.emb_dim,
                              num_of_heads=config.num_of_heads,
                              patch_size=config.patch_size,
                              dropout_rate=config.dropout_rate,
                              num_of_encoder_blocks=config.num_of_encoder_blocks,
-                             num_classes=config.num_classes,
-                             show_params=config.show_params).to(device)
-    
+                             num_classes=config.num_classes).to(device)
     optimizer = Adam(model.parameters(),lr=config.learning_rate)
     criterion = nn.CrossEntropyLoss() 
     epoch_loss_dir = []

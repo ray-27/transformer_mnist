@@ -209,14 +209,14 @@ class vision_transform(nn.Module):
     pass
 
 if __name__ == "__main__":
-    model = vision_transform(emb_dim=config.emb_dim,
-                             num_of_heads=config.num_of_heads,
-                             patch_size=config.patch_size,
-                             dropout_rate=config.dropout_rate,
-                             num_of_encoder_blocks=config.num_of_encoder_blocks,
-                             num_classes=config.num_classes,
-                             show_params=config.show_params)
-
+    # model = vision_transform(emb_dim=config.emb_dim,
+    #                          num_of_heads=config.num_of_heads,
+    #                          patch_size=config.patch_size,
+    #                          dropout_rate=config.dropout_rate,
+    #                          num_of_encoder_blocks=config.num_of_encoder_blocks,
+    #                          num_classes=config.num_classes,
+    #                          show_params=config.show_params)
+    model = patch_embedding()
     x = torch.randn(64,1,28,28)
     y = model(x)
 
